@@ -9,16 +9,22 @@ import { MatGridListModule} from '@angular/material/grid-list';
 import { MatCardModule} from '@angular/material/card';
 import { MatButtonModule} from '@angular/material/button';
 
+import { DatePipe } from '@angular/common';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MenuComponent } from './menu/menu.component';
 
 import 'hammerjs';
+import { DishdetailComponent } from './dishdetail/dishdetail.component';
+
+import { DishService} from './services/dish.service';
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    MenuComponent
+    MenuComponent,
+    DishdetailComponent
   ],
   imports: [
     BrowserModule,
@@ -31,7 +37,10 @@ import 'hammerjs';
     MatCardModule,
     MatButtonModule
   ],
-  providers: [],
+  providers: [
+    DatePipe, 
+    DishService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
