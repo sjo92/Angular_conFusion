@@ -20,6 +20,7 @@ import { MatSliderModule } from '@angular/material/slider';
 
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 import { DatePipe } from '@angular/common';
 import { DishService} from './services/dish.service';
@@ -37,6 +38,8 @@ import { ContactComponent } from './contact/contact.component';
 
 import 'hammerjs';
 import { LoginComponent } from './login/login.component';
+
+import { baseURL } from './shared/baseurl';
 
 
 @NgModule({
@@ -71,12 +74,14 @@ import { LoginComponent } from './login/login.component';
     MatSliderModule,
     FormsModule,
     ReactiveFormsModule,
+    HttpClientModule,
   ],
   providers: [
     DatePipe, 
     DishService,
     PromotionService,
-    LeaderService
+    LeaderService,
+    { provide: 'BaseURL', useValue: baseURL}
   ],
   bootstrap: [AppComponent]
 })
