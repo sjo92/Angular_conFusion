@@ -58,7 +58,7 @@
         <mat-grid-list cols="1" rowHeight="150px">
             <h2>Corporate Leadership</h2>
             <mat-grid-tile *ngFor="let currLead of leaders" >
-                    <img class="lead" height="40px" matListAvatar src={{currLead.image}} alt={{currLead.name}}>
+                    <img class="lead" height="40px" matListAvatar src="{{BaseURL + currLead.image}}" alt={{currLead.name}}>
                     
                     <p matLine> <span class="head">{{currLead.name}} {{currLead.abbr}}</span> <br> {{currLead.designation}}<br>
                         {{currLead.description}} </p>
