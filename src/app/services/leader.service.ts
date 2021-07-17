@@ -19,11 +19,11 @@ export class LeaderService {
   }
 
   getLeader(id: string) : Observable<Leader> {
-    return this.http.get<Leader>(baseURL + 'leadership/' + id);
+    return this.http.get<Leader>(baseURL + 'leadership/' + id).pipe(catchError(this.processHTTPMsgService.handleError));
   
   }
   getFeaturedLeader() : Observable<Leader> {
-    return this.http.get<Leader>(baseURL + 'leadership?featured=true').pipe(map(leaders=> leaders[0]));
+    return this.http.get<Leader>(baseURL + 'leadership?featured=true').pipe(map(leaders=> leaders[0])).pipe(catchError(this.processHTTPMsgService.handleError));
   }
   getLeaderIDs() : Observable<string[] |any >{
     return this.getLeaders().pipe(map(leaders=>leaders.map(leader => leader.id)));

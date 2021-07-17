@@ -20,6 +20,7 @@ export class AboutComponent implements OnInit {
 
   leaders: Leader[]
   BaseURL;
+  leaderErrMess:String;
 
   constructor(private leaderService: LeaderService) { 
     this.BaseURL = baseURL
@@ -27,6 +28,6 @@ export class AboutComponent implements OnInit {
 
   ngOnInit(): void {
     this.leaderService.getLeaders()
-    .subscribe((leaders) => this.leaders=leaders);
+    .subscribe((leaders) => this.leaders=leaders, errmess => this.leaderErrMess = <any> errmess);
   }
 }
