@@ -89,7 +89,7 @@
    
   </div>
   <div fxFlex fxFlexOffset="20px" class="form-size">
-    <div fxFlex *ngIf= "spin" [@expand]>
+    <div fxFlex *ngIf= "spin" [hidden]="formsubmit" [@expand]>
       <h3>Submitting Form..</h3>
       <mat-spinner></mat-spinner> <h4>Loading.. Please Wait</h4>
     </div>

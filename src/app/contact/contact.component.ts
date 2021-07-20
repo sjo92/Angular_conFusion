@@ -109,10 +109,9 @@ export class ContactComponent implements OnInit {
     this.spin = true;
     this.submitted= true;
     this.feedback = this.feedbackForm.value;
-    this.feedbackService.submitFeedback(this.feedback).subscribe(feedback => {this.feedback = feedback; this.spin = false;
-     setTimeout(() => {this.submitted = false; this.formsubmit = true; }, 5000)}, errmess => { this.feedback = null; this.errMess = <any>errmess});
+    this.feedbackService.submitFeedback(this.feedback).subscribe(feedback => {this.feedback = feedback; this.spin = false; this.formsubmit = true;
+     setTimeout(() => {this.submitted = false; this.formsubmit = false;}, 5000)}, errmess => { this.feedback = null; this.errMess = <any>errmess});
 
-     this.formsubmit = false;
     this.feedbackForm.reset({
       firstname: '',
       lastname: '',
